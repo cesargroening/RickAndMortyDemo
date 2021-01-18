@@ -1,0 +1,47 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <router-outlet></router-outlet>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<ul class="list-group row"
+infiniteScroll  
+[infiniteScrollDistance]="0.5"
+[infiniteScrollThrottle]="10"
+(scrolled)="onScroll()">
+<a 
+    *ngFor="let caracter of caracteres" 
+    routerLinkActive="activo"  
+    [routerLink]="['detalle',caracter.id]"
+    
+    >
+    
+    <li data-toggle="modal" data-target="#exampleModal">
+        <div class="row tarjeta">
+            <div class="col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4 float-left">
+                <img class=" img-fluid" [src]="caracter.image" alt="">
+            </div>
+            <div class="col-8 col-md-8 col-sm-8 col-lg-8 col-xs-8  contenido float-right">
+                <h1 class="titulo">{{caracter.name}}</h1>
+                <h2 class="subtitulo">
+                    <div 
+                    [ngClass]="{'vivo': caracter.status=='Alive', 'muerto': caracter.status=='Dead', 'desconocido': caracter.status=='unknown'}" 
+                    class="estatus">
+                </div>{{caracter.status}}-{{caracter.species}}</h2>
+                <span class="label-location">Last know location:</span><br>
+                <span class="location">{{caracter.location.name}}</span>
+            </div>
+        </div>
+    </li>
+</a>
+</ul>
