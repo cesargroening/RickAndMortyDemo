@@ -1,0 +1,82 @@
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+
+.cargando{
+    margin: auto;
+    margin-top: 10%;
+    font-size: 200px;
+    animation-name: spin;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+.estatus {
+    border-radius: 80px;
+    padding: 10px;
+
+}
+.imagen {
+    border-radius: 200px;
+    width: 300px;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 30px;
+
+}
+
+.content {
+    text-align: center;
+    padding-top:200px;
+    padding-bottom: 200px;
+    
+}
+
+.info{
+    font-size: 20px;
+}
+
+.info .label{
+    font-weight: bolder;
+}
+
+.respuesta{
+    font-weight: 100;
+    margin-left: 20px;
+
+}
+
+.cuerpo {
+    padding-top: 5%;
+}
+
+@media only screen and (max-width: 600px) {
+    .content{
+        padding: 0 !important;
+    }
+    .location .label {
+        font-size: 18px;
+    }
+    .location .respuesta{
+        font-size: 15px !important;
+        margin: 0 !important;
+        padding: auto;
+    }
+
+    .titulo{
+        font-size: 24px;
+    }
+    .imagen {
+        border-radius: 200px;
+        width: 190px;
+    }
+    
+}

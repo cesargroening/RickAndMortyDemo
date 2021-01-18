@@ -1,0 +1,55 @@
+
+<div *ngIf="caracter!=null" class="content">
+    <div class="row">
+        <div class="col-12 col-md-12 col-sm-12 col-lg-4">
+            <img class="center-block imagen" [src]="caracter.image" alt="">
+            <div class="col-12">
+                <div    
+                [ngClass]="{'vivo': caracter.status=='Alive', 'muerto': caracter.status=='Dead'}" 
+                class="estatus"></div>
+            <h1>{{caracter.name}}</h1>
+            <span 
+                [ngClass]="{' badge-success': caracter.status=='Alive', ' badge-danger': caracter.status=='Dead'}" 
+                class="estatus badge">{{caracter.status}}</span>
+          </div>
+            
+        </div>
+        <div class="cuerpo col-12 col-md-12 col-sm-12 col-lg-6">
+
+            <div class="list-group">
+                <span class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Type</h5>
+                    <p class="mb-1">{{caracter.species}}</p>
+                  </div>
+                </span>
+                <span class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Gender</h5>
+                        <p class="mb-1">{{caracter.gender}}</p>
+                    </div>
+                </span>
+                <span class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Created</h5>
+                        <p class="mb-1">{{caracter.created | date}}</p>
+                    </div>
+                </span>
+                <span class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Location</h5>
+                        <p class="mb-1">{{caracter.location.name}}</p>
+                    </div>
+                </span>
+
+              </div>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="caracter == null">
+    <div class="row" style="text-align:center">
+        <i class="cargando fas fa-circle-notch"></i>
+    </div>
+</div>
